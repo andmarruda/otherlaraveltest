@@ -1,0 +1,56 @@
+version: "3.7"
+services:
+  app:
+    build:
+      args:
+        user: incredible_pics
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: iphonephotography
+    container_name: school-api
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - net_iphonephotography
+    command: ["sh", "-c", "php-fpm"]
+
+  db:
+    image: mysql:8.2
+    container_name: school-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: iphonephotography_db
+      MYSQL_ROOT_PASSWORD: IphonePhotography@pass
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ./.docker/docker-compose/my.cnf:/etc/mysql/my.cnf
+    ports:
+      - 3306:3306
+    networks:
+      - net_iphonephotography
+
+  nginx:
+    image: nginx:alpine
+    container_name: school-nginx
+    restart: unless-stopped
+    ports:
+      - 80:80
+    volumes:
+      - ./:/var/www
+      - ./docker-compose/nginx:/etc/nginx/conf.d/
+    networks:
+      net_iphonephotography:
+        aliases:
+          - api.monitor
+          
+networks:
+  net_iphonephotography:
+    driver: bridge
+    name: net_iphonephotography
+
+volumes:
+  dbdata:
+    driver: local
