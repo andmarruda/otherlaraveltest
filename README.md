@@ -5,6 +5,8 @@
     <code>php artisan db:seed</code>
 </p>
 
+<p>This was a test for a job that i did it, but my application has been declined, so i decide to make this repository public to help me show my skill set to others.</p>
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
