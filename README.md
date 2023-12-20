@@ -1,8 +1,11 @@
 <h3>Anderson's comments and additional features</h3>
+
+<p>This was a test that helps me to improve my automated test capabilities.</p>
+
 <p>To test this environment i decided to run it using Docker, i hope that's ok!</p>
 <p>
-    To generate Users and Lessons you can simply run:<br>
-    <code>php artisan db:seed</code>
+    To test you can run: <br>
+    <code>php artisan test</code>
 </p>
 
 <p>This was a test for a job that i did it, but my application has been declined, so i decide to make this repository public to help me show my skill set to others.</p>
